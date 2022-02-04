@@ -2,12 +2,17 @@ import { extendTheme, theme as baseTheme } from '@chakra-ui/react';
 
 export const theme = extendTheme({
     colors: {
+        base: {
+            highlight:  '#FFBA08'
+        },
         dark: {
+            body: baseTheme.colors.black, 
             text: '#47585B',
-            info: '#999999'
+            info: '#999999' 
         }, 
         light: {
-            text: '#F5F8FA',
+            body: baseTheme.colors.white, 
+            text: '#F5F8FA', 
             info: '#DADADA'
         }
     },
