@@ -1,13 +1,19 @@
+import { Box, Flex } from '@chakra-ui/react';
+import Image from 'next/image';
+
 import { Header } from '../components/Header'
+import BannerImg from '../../public/Images/homeBanner.png'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <h1>Hello World</h1>
-      <h3>
-        <a href='/continente/europa'>Europa</a>
-      </h3>
+
+      <Flex position="relative" >
+        <Box w="100vw" h="21rem" position="absolute" top="0" left="0">
+          <Image src={BannerImg} layout="fill" />
+        </Box>
+      </Flex>
     </>
   )
 }
