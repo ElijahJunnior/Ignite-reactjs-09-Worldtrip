@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Heading, HStack } from '@chakra-ui/react';
+import { Box, Flex, Text, Heading, HStack, Divider } from '@chakra-ui/react';
 import Image from 'next/image';
 
 import { Header } from '../components/Header';
@@ -8,6 +8,7 @@ import SurfImg from '../../public/images/surf.svg';
 import BuildingImg from '../../public/images/building.svg';
 import MuseumImg from '../../public/images/museum.svg';
 import EarthImg from '../../public/images/earth.svg';
+import { TrevelType } from '../components/Home/TravelType';
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <Header />
       <Flex
         w="100vw" h="21rem" justify="center"
-        bgImage="images/homeBanner.png" bgSize="cover" 
+        bgImage="images/homeBanner.png" bgSize="cover"
       >
         <Flex w="100%" maxW={1280} position="relative">
           <Box maxW="32rem" pt="5rem" px="1.5rem" color="light.text">
@@ -31,34 +32,18 @@ export default function Home() {
             width="26.rem" transform="rotate(3deg)"
             position="absolute" right="1.5rem" bottom="-2.5rem"
           >
-            <Image src={AirplaneImg} alt="Avião"/>
+            <Image src={AirplaneImg} alt="Avião" />
           </Box>
         </Flex>
       </Flex>
-      <Flex maxW={1280} justify="center">
-        <HStack w="100%" pt="7.5rem" justify="space-around">
-          <Box textAlign="center">
-            <Image src={CocktailImg} alt="Coquetel"/>
-            <Text pt="1.5rem">vida noturna</Text>
-          </Box>
-          <Box>
-            <Image src={SurfImg} alt="Prancha de Surf"/>
-            <Text pt="1.5rem">praia</Text>
-          </Box>
-          <Box>
-            <Image src={BuildingImg} alt="Prédio"/>
-            <Text pt="1.5rem">moderno</Text>
-          </Box>          
-          <Box>
-            <Image src={MuseumImg} alt="Museu"/>
-            <Text pt="1.5rem">clássico</Text>
-          </Box>
-          <Box>
-            <Image src={EarthImg} alt="Planeta Terra"/>
-            <Text pt="1.5rem">e mais...</Text>
-          </Box>
-        </HStack>
+      <Flex w="100%" maxW={1280} m="0 auto" mt="7.5rem" justify="space-around">
+        <TrevelType description='vida noturna' imageSrc={CocktailImg} />
+        <TrevelType description='praia' imageSrc={SurfImg} />
+        <TrevelType description='moderno' imageSrc={BuildingImg} />
+        <TrevelType description='clássico' imageSrc={MuseumImg} />
+        <TrevelType description='e mais...' imageSrc={EarthImg} />
       </Flex>
+      <Divider w={120} h={1} m="0 auto" mt="7.5rem" bg="dark.text" />
     </>
   )
 }
