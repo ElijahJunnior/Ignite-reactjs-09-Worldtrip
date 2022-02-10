@@ -9,13 +9,14 @@ import BuildingImg from '../../public/images/building.svg';
 import MuseumImg from '../../public/images/museum.svg';
 import EarthImg from '../../public/images/earth.svg';
 import { TrevelType } from '../components/Home/TravelType';
+import { Slider } from '../components/Home/Sllider';
 
 export default function Home() {
   return (
-    <>
+    <Flex w="100%" flexDir="column">
       <Header />
       <Flex
-        w="100vw" h="21rem" justify="center"
+        h="21rem" justify="center"
         bgImage="images/homeBanner.png" bgSize="cover"
       >
         <Flex w="100%" maxW={1280} position="relative">
@@ -43,7 +44,16 @@ export default function Home() {
         <TrevelType description='clássico' imageSrc={MuseumImg} />
         <TrevelType description='e mais...' imageSrc={EarthImg} />
       </Flex>
-      <Divider w={120} h={1} m="0 auto" mt="7.5rem" bg="dark.text" />
-    </>
+      <Divider w={120} h={1} alignSelf="center" mt="7.5rem" bg="dark.text" />
+      <Heading
+        mt="3.25rem" fontSize="36px" lineHeight="54px"
+        fontWeight="500" textAlign="center"
+      >
+        Vamos nessa?
+        <br />
+        Então escolha seu continente
+      </Heading>
+      <Slider />
+    </Flex>
   )
 }
