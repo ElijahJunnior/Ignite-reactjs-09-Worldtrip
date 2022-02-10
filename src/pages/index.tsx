@@ -46,14 +46,14 @@ export default function Home() {
       </Flex>
       <Divider w={120} h={1} alignSelf="center" mt="7.5rem" bg="dark.text" />
       <Heading
-        mt="3.25rem" fontSize="36px" lineHeight="54px"
+        mt="7.5rem" fontSize="36px" lineHeight="54px"
         fontWeight="500" textAlign="center"
       >
         Vamos nessa?
         <br />
         Então escolha seu continente
       </Heading>
-      <Slider />
+      <Slider w="100%" h="28.125rem" maxW="1280px" my="3.25rem" alignSelf="center"/>
     </Flex>
   )
 }
