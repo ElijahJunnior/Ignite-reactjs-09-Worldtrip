@@ -53,7 +53,7 @@ export default function Home() {
         <br />
         Então escolha seu continente
       </Heading>
-      <Slider w="100%" h="28.125rem" maxW="1280px" my="3.25rem" alignSelf="center"/>
+      <Slider w="100%" h="28.125rem" maxW="1280px" my="3.25rem" alignSelf="center" bg="light.info" />
     </Flex>
   )
 }
