@@ -25,25 +25,17 @@ export function Slider(props: FlexProps) {
                 // scrollbar={{ draggable: true }}
                 // onSwiper={(swiper) => console.log(swiper)}
                 // onSlideChange={() => console.log('slide change')}
-                navigation={{
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                }}
+                // navigation={{
+                //     nextEl: '.swiper-button-next',
+                //     prevEl: '.swiper-button-prev',
+                // }}
                 modules={[Navigation, Pagination]}
-                // navigation={true}
+                navigation={true}
                 pagination={{ clickable: true }}
                 style={{ width: "100%" }}
             >
-                <Box className="swiper-button-next"></Box>
-                <Box className="swiper-button-prev"></Box>
-                <SwiperSlide>
-                    <Box h="100%" w="100%" bg="yellow.500" >
-                        <Image
-                            src={EarthImg} alt="imagem da aoropa"
-                            width="100%" height="100%" layout='responsive'
-                        />
-                    </Box>
-                </SwiperSlide>
+                {/* <Box className="swiper-button-next"></Box>
+                <Box className="swiper-button-prev"></Box> */}
                 <SwiperSlide>
                     <Box h="100%" w="100%" bg="green.500">
                         <Image
@@ -62,6 +54,14 @@ export function Slider(props: FlexProps) {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Box h="100%" w="100%" bg="orange.500">
+                        <Image
+                            src={EarthImg} alt="imagem da aoropa"
+                            width="100%" height="100%" layout='responsive'
+                        />
+                    </Box>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Box h="100%" w="100%" bg="red.500"  >
                         <Image
                             src={EarthImg} alt="imagem da aoropa"
                             width="100%" height="100%" layout='responsive'
