@@ -4,13 +4,11 @@ import Image from 'next/image';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/bundle';
+
 
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
-
 
 import EarthImg from '../../../public/Images/earth.svg'
 
@@ -27,11 +25,17 @@ export function Slider(props: FlexProps) {
                 // scrollbar={{ draggable: true }}
                 // onSwiper={(swiper) => console.log(swiper)}
                 // onSlideChange={() => console.log('slide change')}
+                navigation={{
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }}
                 modules={[Navigation, Pagination]}
-                navigation={true}
+                // navigation={true}
                 pagination={{ clickable: true }}
                 style={{ width: "100%" }}
             >
+                <Box className="swiper-button-next"></Box>
+                <Box className="swiper-button-prev"></Box>
                 <SwiperSlide>
                     <Box h="100%" w="100%" bg="yellow.500" >
                         <Image
