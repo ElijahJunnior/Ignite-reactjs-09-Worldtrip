@@ -1,15 +1,21 @@
-import { Box, Flex, Text, Heading, HStack, Divider } from '@chakra-ui/react';
+// React / Next
 import Image from 'next/image';
 
+// Chakra
+import { Box, Flex, Text, Heading, HStack, Divider } from '@chakra-ui/react';
+
+// My Components
 import { Header } from '../components/Header';
+import { TrevelType } from '../components/Home/TravelType';
+import { ContinentArea } from '../components/Home/ContinentArea';
+
+// Images
 import AirplaneImg from '../../public/Images/airplane.svg';
 import CocktailImg from '../../public/images/cocktail.svg';
 import SurfImg from '../../public/images/surf.svg';
 import BuildingImg from '../../public/images/building.svg';
 import MuseumImg from '../../public/images/museum.svg';
 import EarthImg from '../../public/images/earth.svg';
-import { TrevelType } from '../components/Home/TravelType';
-import { Slider } from '../components/Home/Sllider';
 
 export default function Home() {
   return (
@@ -53,7 +59,10 @@ export default function Home() {
         <br />
         Então escolha seu continente
       </Heading>
-      <Slider w="100%" h="28.125rem" maxW="1280px" my="3.25rem" alignSelf="center" bg="light.info" />
+      <ContinentArea
+        w="100%" h="28.125rem" maxW="1280px" my="3.25rem"
+        alignSelf="center" bg="light.info"
+      />
     </Flex>
   )
 }
