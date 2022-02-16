@@ -1,24 +1,34 @@
 {
   "continents": [
     {
+      "name": "América do Norte",
+      "description": "O destino preferido dos viajantes.",
+      "image": "http://localhost:3000/images/europa01.png"
+    },
+    {
+      "name": "América do Sul",
+      "description": "O paraíso tropical. ",
+      "image": "http://localhost:3000/images/europa01.png"
+    },
+    {
+      "name": "Ásia",
+      "description": "O oriente misterioso.",
+      "image": "http://localhost:3000/images/europa01.png"
+    },
+    {
+      "name": "África",
+      "description": "O lar das savanas selvagens.",
+      "image": "http://localhost:3000/images/europa01.png"
+    },
+    {
       "name": "Europa",
       "description": "O continente mais antigo.",
-      "image": "http:/localhost:3000/images/europa01.png"
+      "image": "http://localhost:3000/images/europa01.png"
     },
     {
-      "name": "Europa2",
-      "description": "O continente mais antigo2.",
-      "image": "http:/localhost:3000/images/earth.svg"
-    },
-    {
-      "name": "Europa3",
-      "description": "O continente mais antigo3.",
-      "image": "http:/localhost:3000/images/earth.svg"
-    },
-    {
-      "name": "Europa4",
-      "description": "O continente mais antigo4.",
-      "image": "http:/localhost:3000/images/earth.svg"
+      "name": "Oceania",
+      "description": "O sonho envolto pelo mar.",
+      "image": "http://localhost:3000/images/europa01.png"
     }
   ]
 }

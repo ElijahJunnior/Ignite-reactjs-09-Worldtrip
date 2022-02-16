@@ -1,6 +1,3 @@
-// React / Next
-import Image from 'next/image';
-
 // Chakra
 import { Box, Flex, FlexProps, Heading, Text } from '@chakra-ui/react';
 
@@ -12,21 +9,31 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { ContinentItem } from './ContinentItem'
 
 // Images
-import EarthImg from '../../../public/Images/earth.svg'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+interface IContinent {
+    name: string,
+    description: string, 
+    image: string
+}
 
 export function ContinentArea(props: FlexProps) {
 
-    // useEffect(() => {
+    const [continents, setContinents] = useState<IContinent[]>([])
 
-    //     async function loadContinents() {
-    //         const a = await fetch("http://localhost:3333/continents").then(res => JSON.stringify(res.data))
-    //         console.log("data::::", a)
-    //     }
+    useEffect(() => {
 
-    //     loadContinents()
+        async function loadContinents() {
+            
+            const data = await fetch("http://localhost:3333/continents").then(res => res.json())
 
-    // }, [])
+            setContinents(data)
+
+        }
+
+        loadContinents()
+
+    }, [])
 
     return (
         <Flex {...props}>
@@ -36,35 +43,19 @@ export function ContinentArea(props: FlexProps) {
                 navigation={true}
                 pagination={{ clickable: true }}
                 style={{ width: "100%" }}
-            >
-                <SwiperSlide>
-                    <ContinentItem
-                        name="Europa" description="O continente mais antigo."
-                        imageSrc="images/europa01.png"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <ContinentItem
-                        name="Europa" description="O continente mais antigo."
-                        imageSrc="images/earth.svg"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Box h="100%" w="100%" bg="orange.500">
-                        <Image
-                            src={EarthImg} alt="imagem da aoropa"
-                            width="100%" height="100%" layout='responsive'
-                        />
-                    </Box>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Box h="100%" w="100%" bg="red.500"  >
-                        <Image
-                            src={EarthImg} alt="imagem da aoropa"
-                            width="100%" height="100%" layout='responsive'
-                        />
-                    </Box>
-                </SwiperSlide>
+                >
+                {
+                    continents.map(continent => 
+                        <SwiperSlide key={continent.name}>
+                            {console.log(continent.name, continent.description, continent.image)}
+                            <ContinentItem
+                                name={continent.name} 
+                                description={continent.description}
+                                imageSrc={continent.image}
+                            />
+                        </SwiperSlide>    
+                    )
+                }
             </Swiper>
         </Flex >
     )
