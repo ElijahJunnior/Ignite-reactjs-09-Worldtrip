@@ -3,22 +3,22 @@
     {
       "name": "América do Norte",
       "description": "O destino preferido dos viajantes.",
-      "image": "http://localhost:3000/images/europa01.png"
+      "image": "http://localhost:3000/images/america_norte01.jpg"
     },
     {
       "name": "América do Sul",
       "description": "O paraíso tropical. ",
-      "image": "http://localhost:3000/images/europa01.png"
+      "image": "http://localhost:3000/images/america_sul01.jpg"
     },
     {
       "name": "Ásia",
       "description": "O oriente misterioso.",
-      "image": "http://localhost:3000/images/europa01.png"
+      "image": "http://localhost:3000/images/asia01.jpg"
     },
     {
       "name": "África",
       "description": "O lar das savanas selvagens.",
-      "image": "http://localhost:3000/images/europa01.png"
+      "image": "http://localhost:3000/images/africa01.png"
     },
     {
       "name": "Europa",
@@ -28,7 +28,7 @@
     {
       "name": "Oceania",
       "description": "O sonho envolto pelo mar.",
-      "image": "http://localhost:3000/images/europa01.png"
+      "image": "http://localhost:3000/images/oceania01.jpg"
     }
   ]
 }
