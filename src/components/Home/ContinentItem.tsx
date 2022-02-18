@@ -1,5 +1,4 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
-import { deserialize } from "v8";
 
 interface IContinentItemProps {
     name: string,
@@ -15,7 +14,7 @@ export function ContinentItem(props: IContinentItemProps) {
             bgImage={props.imageSrc} bgSize="cover" bgPosition="center"
         >
             <Heading
-                color="light.text" pb="1rem" 
+                color="light.text" pb="1rem"
                 fontWeight="700" fontSize="48px" lineHeight="72px"
             >
                 {props.name}

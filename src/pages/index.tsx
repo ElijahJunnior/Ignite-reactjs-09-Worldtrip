@@ -1,4 +1,6 @@
 // React / Next
+import { useEffect, useState } from 'react';
+import { GetStaticProps, GetStaticPropsContext, GetStaticPropsResult } from 'next';
 import Image from 'next/image';
 
 // Chakra
@@ -7,7 +9,7 @@ import { Box, Flex, Text, Heading, HStack, Divider } from '@chakra-ui/react';
 // My Components
 import { Header } from '../components/Header';
 import { TrevelType } from '../components/Home/TravelType';
-import { ContinentArea } from '../components/Home/ContinentArea';
+import { ContinentArea, Continent } from '../components/Home/ContinentArea';
 
 // Images
 import AirplaneImg from '../../public/Images/airplane.svg';
@@ -17,7 +19,12 @@ import BuildingImg from '../../public/images/building.svg';
 import MuseumImg from '../../public/images/museum.svg';
 import EarthImg from '../../public/images/earth.svg';
 
-export default function Home() {
+type HomeProps = {
+  continents: Continent[]
+}
+
+export default function Home({ continents }: HomeProps) {
+
   return (
     <Flex w="100%" flexDir="column">
       <Header />
@@ -60,9 +67,26 @@ export default function Home() {
         Então escolha seu continente
       </Heading>
       <ContinentArea
+        continents={continents}
         w="100%" h="28.125rem" maxW="1280px" my="3.25rem"
         alignSelf="center" bg="light.info"
       />
     </Flex>
   )
+}
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+
+  const continents: Continent[] = await fetch(
+    "http://localhost:3333/continents"
+  ).then(
+    res => res.json()
+  )
+
+  return {
+    props: {
+      continents
+    },
+    revalidate: 60 * 60 * 24 // 24hrs
+  }
 }
