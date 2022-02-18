@@ -1,27 +1,38 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Link as ChakraLink, Heading, Text } from "@chakra-ui/react";
+import Link from 'next/link';
 
-interface IContinentItemProps {
+// types
+export type Continent = {
+    id: string,
     name: string,
     description: string,
-    imageSrc: string
+    image: string
 }
 
-export function ContinentItem(props: IContinentItemProps) {
+type IContinentItemProps = {
+    continent: Continent
+}
+
+export function ContinentItem({ continent }: IContinentItemProps) {
 
     return (
         <Flex
             h="100%" w="100%" flexDir="column" align="center" justify="center"
-            bgImage={props.imageSrc} bgSize="cover" bgPosition="center"
+            bgImage={continent.image} bgSize="cover" bgPosition="center"
         >
-            <Heading
-                color="light.text" pb="1rem"
-                fontWeight="700" fontSize="48px" lineHeight="72px"
-            >
-                {props.name}
-            </Heading>
-            <Text color="light.info" fontWeight="700" fontSize="24px" lineHeight="36px" >
-                {props.description}
-            </Text>
+            <Link href={`/continente/${continent.id}`} passHref>
+                <ChakraLink>   
+                    <Heading
+                        color="light.text" pb="1rem"
+                        fontWeight="700" fontSize="48px" lineHeight="72px"
+                        >
+                        {continent.name}
+                    </Heading>
+                    <Text color="light.info" fontWeight="700" fontSize="24px" lineHeight="36px" >
+                        {continent.description}
+                    </Text>
+                </ChakraLink>
+            </Link>
         </Flex>
     )
 

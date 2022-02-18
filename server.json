@@ -1,31 +1,37 @@
 {
   "continents": [
     {
+      "id": "america-do-norte",
       "name": "América do Norte",
       "description": "O destino preferido dos viajantes.",
       "image": "http://localhost:3000/images/america_norte01.png"
     },
     {
+      "id": "america-do-sul",
       "name": "América do Sul",
       "description": "O paraíso tropical. ",
       "image": "http://localhost:3000/images/america_sul01.png"
     },
     {
+      "id": "asia",
       "name": "Ásia",
       "description": "O oriente misterioso.",
       "image": "http://localhost:3000/images/asia01.png"
     },
     {
+      "id": "africa",
       "name": "África",
       "description": "O lar das savanas selvagens.",
       "image": "http://localhost:3000/images/africa01.png"
     },
     {
+      "id": "europa",
       "name": "Europa",
       "description": "O continente mais antigo.",
       "image": "http://localhost:3000/images/europa01.png"
     },
     {
+      "id": "oceania",
       "name": "Oceania",
       "description": "O sonho envolto pelo mar.",
       "image": "http://localhost:3000/images/oceania01.png"
