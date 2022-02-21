@@ -6,10 +6,10 @@ import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // MyComponents
-import { ContinentItem, Continent as ContinentItemProps } from './ContinentItem'
+import { ContinentItem, Continent } from './ContinentItem'
 
 // Tipos usados na função
-export type Continent = ContinentItemProps;
+export type { Continent } from "./ContinentItem"
 
 export type ContinentAreaProps = {
     continents: Continent[],
@@ -29,7 +29,7 @@ export function ContinentArea({ continents, ...rest }: ContinentAreaProps & Flex
                 {
                     continents.map(continent =>
                         <SwiperSlide key={continent.id}>
-                            <ContinentItem continent={continent}/>
+                            <ContinentItem continent={continent} />
                         </SwiperSlide>
                     )
                 }

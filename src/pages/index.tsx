@@ -89,4 +89,5 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     },
     revalidate: 60 * 60 * 24 // 24hrs
   }
+
 }
