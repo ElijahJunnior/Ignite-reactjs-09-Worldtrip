@@ -1,7 +1,9 @@
-import { Flex, Heading, Text, HStack, Box } from '@chakra-ui/react'
+import { Flex, Heading, Text, HStack, VStack, Box, Icon } from '@chakra-ui/react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { Header } from '../../components/Header'
+
+// import InfoImg from '../../../public/Images/info.svg'
 
 interface Iparams extends ParsedUrlQuery {
     slug: string
@@ -11,7 +13,7 @@ export default function Continente(props) {
     return (
         <>
             <Header />
-            <Flex w="100%" h="500px" bg="dark.text">
+            <Flex w="100%" h="500px" bg="dark.text" mb="80px">
                 <Flex w="100%" h="100%" maxW="1280px" m="0 auto" flexDir="column-reverse">
                     <Heading fontSize="48px" fontWeight="600" lineHeight="72px" mb="3.625rem">
                         {props.slug}
@@ -19,24 +21,29 @@ export default function Continente(props) {
                 </Flex>
             </Flex>
             <Flex w="100%" maxW="1280px" m="0 auto" flexDir="column">
+                <HStack spacing="70px">
+                    <Text fontWeight="400" fontSize="24px" lineHeight="36px" textAlign="justify">
+                        A Europa é, por convenção, um dos seis continentes 
+                        do mundo. Compreendendo a península ocidental da 
+                        Eurásia, a Europa geralmente divide-se da Ásia a 
+                        leste pela divisória de águas dos montes Urais, o 
+                        rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste
+                    </Text>
                 <HStack spacing="42px">
-                <Text>
-                    A Europa é, por convenção, um dos seis continentes 
-                    do mundo. Compreendendo a península ocidental da 
-                    Eurásia, a Europa geralmente divide-se da Ásia a 
-                    leste pela divisória de águas dos montes Urais, o 
-                    rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste
-                </Text>
-                <Box w="100px" h="100px" bg="dark.info">
-                    
-                </Box>
-                <Box w="120px"  h="100px" bg="dark.info">
-                    
-                </Box>
-                <Box w="186px"  h="100px" bg="dark.info">
-                    
-                </Box>
-
+                    <VStack>
+                        <Text>50</Text>
+                        <Text>países</Text>
+                    </VStack>
+                    <VStack>
+                        <Text>60</Text>
+                        <Text>linguas</Text>
+                    </VStack>
+                    <VStack >
+                        <Text>27</Text>             
+                        <Text whiteSpace="nowrap">cidades +100 </Text>
+                        {/* <Icon as={InfoImg} /> */}
+                    </VStack>
+                </HStack>
                 </HStack>
             </Flex>
         </>
