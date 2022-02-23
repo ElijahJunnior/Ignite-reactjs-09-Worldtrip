@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, HStack, VStack, Image } from '@chakra-ui/react';
+import { Flex, Heading, Text, HStack, VStack, Image, SimpleGrid } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { InfoCard } from '../../components/Continente/InfoCard';
@@ -44,12 +44,14 @@ export default function Continente(props) {
                 >
                     Cidades +100
                 </Heading>
-                <HStack mb="125px" justify="space-between">
+                <SimpleGrid mb="125px" minChildWidth="256px" spacing="85px">
                     <CityCard />
                     <CityCard />
                     <CityCard />
                     <CityCard />
-                </HStack>
+                    <CityCard />
+                    <CityCard />
+                </SimpleGrid>
             </Flex>
         </>
     )
