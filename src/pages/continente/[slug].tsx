@@ -15,7 +15,7 @@ export default function Continente(props) {
             <Header />
             <Flex w="100%" h="500px" bg="dark.text" mb="80px">
                 <Flex w="100%" h="100%" maxW="1280px" m="0 auto" flexDir="column-reverse">
-                    <Heading fontSize="48px" fontWeight="600" lineHeight="72px" mb="3.625rem">
+                    <Heading fontSize="48px" fontWeight="600" lineHeight="72px" mb="3.625rem" color="light.text">
                         {props.slug}
                     </Heading>
                 </Flex>
