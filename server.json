@@ -185,7 +185,8 @@
     {
       "rank": "25",
       "city_name": "Amsterdam",
-      "country": "Netherlands"
+      "country": "Netherlands",
+      "continent": "europa"
     },
     {
       "rank": "26",
@@ -220,17 +221,20 @@
     {
       "rank": "31",
       "city_name": "Ho Chi Minh City",
-      "country": "Vietnam"
+      "country": "Vietnam",
+      "continent": "asia"
     },
     {
       "rank": "32",
       "city_name": "Denpasar",
-      "country": "Indonesia"
+      "country": "Indonesia",
+      "continent": "asia"
     },
     {
       "rank": "33",
       "city_name": "Barcelona",
-      "country": "Spain"
+      "country": "Spain",
+      "continent": "europa"
     },
     {
       "rank": "34",
@@ -253,7 +257,8 @@
     {
       "rank": "37",
       "city_name": "Vienna",
-      "country": "Austria"
+      "country": "Austria",
+      "continent": "europa"
     },
     {
       "rank": "38",
@@ -270,12 +275,14 @@
     {
       "rank": "40",
       "city_name": "Cancun",
-      "country": "Mexico"
+      "country": "Mexico",
+      "continent": "america-do-norte"
     },
     {
       "rank": "41",
       "city_name": "Berlin",
-      "country": "Germany"
+      "country": "Germany",
+      "continent": "europa"
     },
     {
       "rank": "42",
@@ -307,12 +314,14 @@
     {
       "rank": "47",
       "city_name": "Madrid",
-      "country": "Spain"
+      "country": "Spain",
+      "continent": "europa"
     },
     {
       "rank": "48",
       "city_name": "Ha Long",
-      "country": "Vietnam"
+      "country": "Vietnam",
+      "continent": "asia"
     },
     {
       "rank": "49",
@@ -334,7 +343,8 @@
     {
       "rank": "52",
       "city_name": "Ha Noi",
-      "country": "Vietnam"
+      "country": "Vietnam",
+      "continent": "asia"
     },
     {
       "rank": "53",
@@ -354,12 +364,14 @@
     {
       "rank": "56",
       "city_name": "Munich",
-      "country": "Germany"
+      "country": "Germany",
+      "continent": "europa"
     },
     {
       "rank": "57",
       "city_name": "Jakarta",
-      "country": "Indonesia"
+      "country": "Indonesia",
+      "continent": "asia"
     },
     {
       "rank": "58",
@@ -521,7 +533,8 @@
     {
       "rank": "87",
       "city_name": "Frankfurt",
-      "country": "Germany"
+      "country": "Germany",
+      "continent": "europa"
     },
     {
       "rank": "88",
@@ -536,12 +549,14 @@
     {
       "rank": "90",
       "city_name": "Da Nang",
-      "country": "Vietnam"
+      "country": "Vietnam",
+      "continent": "asia"
     },
     {
       "rank": "91",
       "city_name": "Batam",
-      "country": "Indonesia"
+      "country": "Indonesia",
+      "continent": "asia"
     },
     {
       "rank": "92",
