@@ -287,12 +287,14 @@
     {
       "rank": "42",
       "city_name": "Cairo",
-      "country": "Egypt"
+      "country": "Egypt",
+      "continent": "africa"
     },
     {
       "rank": "43",
       "city_name": "Athens",
-      "country": "Greece"
+      "country": "Greece",
+      "continent": "europa"
     },
     {
       "rank": "44",
@@ -303,7 +305,8 @@
     {
       "rank": "45",
       "city_name": "Moscow",
-      "country": "Russia"
+      "country": "Russia",
+      "continent": "europa"
     },
     {
       "rank": "46",
@@ -332,7 +335,8 @@
     {
       "rank": "50",
       "city_name": "Dublin",
-      "country": "Ireland"
+      "country": "Ireland", 
+      "continent": "europa"
     },
     {
       "rank": "51",
@@ -349,17 +353,20 @@
     {
       "rank": "53",
       "city_name": "Toronto",
-      "country": "Canada"
+      "country": "Canada",
+      "continent": "america-do-norte"
     },
     {
       "rank": "54",
       "city_name": "Johannesburg South",
-      "country": "Africa"
+      "country": "Africa",
+      "continent": "africa"
     },
     {
       "rank": "55",
       "city_name": "Sydney",
-      "country": "Australia"
+      "country": "Australia",
+      "continent": "oceania"
     },
     {
       "rank": "56",
@@ -382,27 +389,32 @@
     {
       "rank": "59",
       "city_name": "St. Petersburg",
-      "country": "Russia"
+      "country": "Russia",
+      "continent": "europa"
     },
     {
       "rank": "60",
       "city_name": "Brussels",
-      "country": "Belgium"
+      "country": "Belgium",
+      "continent": "europa"
     },
     {
       "rank": "61",
       "city_name": "Jerusalem",
-      "country": "Israel"
+      "country": "Israel",
+      "continent": "asia"
     },
     {
       "rank": "62",
       "city_name": "Budapest",
-      "country": "Hungary"
+      "country": "Hungary", 
+      "continent": "europa"
     },
     {
       "rank": "63",
       "city_name": "Lisbon",
-      "country": "Portugal"
+      "country": "Portugal", 
+      "continent": "europa"
     },
     {
       "rank": "64",
@@ -419,7 +431,8 @@
     {
       "rank": "66",
       "city_name": "Heraklion",
-      "country": "Greece"
+      "country": "Greece",
+      "continent": "europa"
     },
     {
       "rank": "67",
@@ -436,7 +449,8 @@
     {
       "rank": "69",
       "city_name": "Vancouver",
-      "country": "Canada"
+      "country": "Canada",
+      "continent": "america-do-norte"
     },
     {
       "rank": "70",
@@ -447,7 +461,8 @@
     {
       "rank": "71",
       "city_name": "Copenhagen",
-      "country": "Denmark"
+      "country": "Denmark", 
+      "continent": "europa"
     },
     {
       "rank": "72",
@@ -458,17 +473,20 @@
     {
       "rank": "73",
       "city_name": "Melbourne",
-      "country": "Australia"
+      "country": "Australia",
+      "continent": "oceania"
     },
     {
       "rank": "74",
       "city_name": "Krakow",
-      "country": "Poland"
+      "country": "Poland", 
+      "continent": "europa"
     },
     {
       "rank": "75",
       "city_name": "Marrakech",
-      "country": "Morocco"
+      "country": "Morocco", 
+      "continent": "africa"
     },
     {
       "rank": "76",
@@ -479,17 +497,20 @@
     {
       "rank": "77",
       "city_name": "Cebu",
-      "country": "Philippines"
+      "country": "Philippines", 
+      "continent": "asia"
     },
     {
       "rank": "78",
       "city_name": "Auckland New",
-      "country": "Zealand"
+      "country": "Zealand", 
+      "continent": "oceania"
     },
     {
       "rank": "79",
       "city_name": "Tel Aviv",
-      "country": "Israel"
+      "country": "Israel",
+      "continent": "asia"
     },
     {
       "rank": "80",
@@ -506,12 +527,14 @@
     {
       "rank": "82",
       "city_name": "Hurgada",
-      "country": "Egypt"
+      "country": "Egypt",
+      "continent": "africa"
     },
     {
       "rank": "83",
       "city_name": "Warsaw",
-      "country": "Poland"
+      "country": "Poland", 
+      "continent": "europa"
     },
     {
       "rank": "84",
@@ -522,7 +545,8 @@
     {
       "rank": "85",
       "city_name": "Buenos Aires",
-      "country": "Argentina"
+      "country": "Argentina", 
+      "continent": "america-do-sul"
     },
     {
       "rank": "86",
@@ -539,12 +563,14 @@
     {
       "rank": "88",
       "city_name": "Stockholm",
-      "country": "Sweden"
+      "country": "Sweden", 
+      "continent": "europa"
     },
     {
       "rank": "89",
       "city_name": "Lima",
-      "country": "Peru"
+      "country": "Peru", 
+      "continent": "america-do-sul"
     },
     {
       "rank": "90",
@@ -585,17 +611,20 @@
     {
       "rank": "96",
       "city_name": "Porto",
-      "country": "Portugal"
+      "country": "Portugal", 
+      "continent": "europa"
     },
     {
       "rank": "97",
       "city_name": "Rhodes",
-      "country": "Greece"
+      "country": "Greece",
+      "continent": "europa"
     },
     {
       "rank": "98",
       "city_name": "Rio de Janeiro",
-      "country": "Brazil"
+      "country": "Brazil", 
+      "continent": "america-do-sul"
     },
     {
       "rank": "99",

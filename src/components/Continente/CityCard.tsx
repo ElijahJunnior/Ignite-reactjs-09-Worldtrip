@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, Image } from "@chakra-ui/react";
 import NextImage from "next/image";
 
 export function CityCard() {
@@ -30,6 +30,7 @@ export function CityCard() {
                 w="30px" h="30px" bg="red.500" borderRadius="15px"
                 position="absolute" right="24px" bottom="38px"
             >
+                {/* <Image src="https://flagcdn.com/br.svg" /> */}
             </Box>
         </VStack>
     )
