@@ -3,38 +3,50 @@
     {
       "id": "america-do-norte",
       "name": "América do Norte",
-      "description": "O destino preferido dos viajantes.",
-      "image": "/images/america_norte01.png"
+      "cover_description": "O destino preferido dos viajantes.",
+      "cover_image": "/images/america_norte01.png",
+      "page_description": "",
+      "page_image": "/images/america_norte02.png"
     },
     {
       "id": "america-do-sul",
       "name": "América do Sul",
-      "description": "O paraíso tropical. ",
-      "image": "/images/america_sul01.png"
+      "cover_description": "O paraíso tropical. ",
+      "cover_image": "/images/america_sul01.png",
+      "page_description": "",
+      "page_image": "/images/america_sul02.png"
     },
     {
       "id": "asia",
       "name": "Ásia",
-      "description": "O oriente misterioso.",
-      "image": "/images/asia01.png"
+      "cover_description": "O oriente misterioso.",
+      "cover_image": "/images/asia01.png",
+      "page_description": "",
+      "page_image": "/images/asia02.png"
     },
     {
       "id": "africa",
       "name": "África",
-      "description": "O lar das savanas selvagens.",
-      "image": "/images/africa01.png"
+      "cover_description": "O lar das savanas selvagens.",
+      "cover_image": "/images/africa01.png",
+      "page_description": "",
+      "page_image": "/images/africa02.png"
     },
     {
       "id": "europa",
       "name": "Europa",
-      "description": "O continente mais antigo.",
-      "image": "/images/europa01.png"
+      "cover_description": "O continente mais antigo.",
+      "cover_image": "/images/europa01.png",
+      "page_description": "",
+      "page_image": "/images/europa02.png"
     },
     {
       "id": "oceania",
       "name": "Oceania",
-      "description": "O sonho envolto pelo mar.",
-      "image": "/images/oceania01.png"
+      "cover_description": "O sonho envolto pelo mar.",
+      "cover_image": "/images/oceania01.png",
+      "page_description": "",
+      "page_image": "/images/oceania02.png"
     }
   ],
   "top_citys": [
