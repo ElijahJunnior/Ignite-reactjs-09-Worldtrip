@@ -4,9 +4,9 @@
       "id": "america-do-norte",
       "name": "América do Norte",
       "cover_description": "O destino preferido dos viajantes.",
-      "cover_image": "/images/america_norte01.png",
+      "cover_image": "https://images.unsplash.com/photo-1469797384183-f961931553e9?ixid=MnwzMDYxNDh8MHwxfHNlYXJjaHwyfHxBbSVDMyVBOXJpY2ElMjBkbyUyME5vcnRlfGVufDB8MHx8fDE2NDYyMjI5MjU&ixlib=rb-1.2.1&w=720",
       "page_description": "",
-      "page_image": "/images/america_norte02.png"
+      "page_image": "https://images.unsplash.com/photo-1609244052025-b2667ae8b8e9?ixid=MnwzMDYxNDh8MHwxfHNlYXJjaHw1fHxBbSVDMyVBOXJpY2ElMjBkbyUyME5vcnRlfGVufDB8MHx8fDE2NDYyMjI5MjU&ixlib=rb-1.2.1&w=720"
     },
     {
       "id": "america-do-sul",

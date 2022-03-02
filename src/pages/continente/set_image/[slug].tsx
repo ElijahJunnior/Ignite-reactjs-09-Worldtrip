@@ -1,81 +1,105 @@
-import { Button, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react"
-import { GetServerSideProps } from "next"
-import { useRouter } from "next/router"
-import { ParsedUrlQuery } from "querystring"
-import { Header } from "../../../components/Header"
+import { Button, Flex, Heading, Input, SimpleGrid, Text } from "@chakra-ui/react";
+import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
+import { ParsedUrlQuery } from "querystring";
+import { Header } from "../../../components/Header";
+import { Continent } from '../index';
+
+import { FaSearch } from 'react-icons/fa'
+import { useState } from "react";
 
 interface IParams extends ParsedUrlQuery {
-    slug: string
-}
-
-type City = {
-    id: string,
-    rank: string,
-    city_name: string,
-    city_image: string,
-    continent: string,
-    country_name: string,
-    country_code: string,
-    country_flag_image: string
+    slug: string, 
+    i: string | null
 }
 
 type UnsplashImage = {
     id: string,
-    urls: {
-        raw: string
-    }
+    url: string
 }
 
 type PageProps = {
-    city: City,
-    images: UnsplashImage[]
+    continent: Continent,
+    images: UnsplashImage[],
+    campo_update: string
 }
 
-export default function SetCityImage({ city, images }: PageProps) {
+export default function SetCityImage(props: PageProps) {
 
     const router = useRouter()
+
+    const [images, setImages ] = useState<UnsplashImage[]>(props.images);
+    const [inputVal, setinputVal ] = useState("");
+
+    async function handleSeachImages(query: string) {
+        
+        const dataImages: UnsplashImage[] = await fetch(
+            `http://localhost:3000/api/search_images?query=${query}`
+        ).then((res: Response) => {
+            return res.json()
+        });
+
+        setImages(dataImages);
+
+    }
 
     async function handleSelectImage(img: UnsplashImage) {
         try {
 
+            const data = props.campo_update === "cover"?  {
+                ...props.continent,
+                cover_image: img.url + "&w=720",
+            } : {
+                ...props.continent,
+                page_image: img.url + "&w=720",
+            }
+
             await fetch(
-                `http://localhost:3333/top_citys/${city.id}`,
+                `http://localhost:3333/continents/${props.continent.id}`,
                 {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({
-                        ...city,
-                        city_image: img.urls.raw + "&w=720",
-                    })
+                    body: JSON.stringify(data)
                 }
             )
 
-            return router.push("/citys")
+            return router.push("/continente")
 
         } catch (error) {
             console.log(error)
         }
     }
 
-
     return (
         <>
             <Header />
             <Flex flex="1" maxWidth="1280px" flexDir="column" marginX="auto">
                 <Heading mt="36px" mb="72px" fontSize="3xl">
-                    Escolha a foto que será usada para a cidade:
+                    Escolha a foto que será usada para o continente:
                     <Text as="span" color="base.highlight" fontSize="4xl">
-                        {" " + city.city_name}
+                        {" " + props.continent.name}
                     </Text>
                 </Heading>
-                <SimpleGrid minChildWidth="600px" spacing="42px" mb="80px">
+                <Flex mb="80px">
+                    <Input 
+                        placeholder="pesquisar imagens" size="lg" type="search" mr="8px" 
+                        value={inputVal} onChange={(event) => {setinputVal(event.target.value) }}
+                    />
+                    <Button 
+                        size="lg" variant="solid" bg="light.info" 
+                        fontSize="24px" color="dark.info" 
+                    >
+                        <FaSearch />
+                    </Button>
+                </Flex>
+                <SimpleGrid minChildWidth="600px" spacing="42px" mb="80px" justifyItems="center" >
                     {images.map(img => (
                         <Flex
                             key={img.id}
                             w="600px" h="365px" p="20px" align="end" justify="end"
-                            borderRadius="16px" bgImage={img.urls.raw + "&w=720"}
+                            borderRadius="16px" bgImage={img.url + "&w=720"}
                             bgSize="cover" bgPos="center" boxShadow={"dark-lg"}
                         >
                             <Button
@@ -94,39 +118,34 @@ export default function SetCityImage({ city, images }: PageProps) {
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (ctx) => {
 
-    const { slug } = ctx.query as IParams;
+    const { slug, i } = ctx.query as IParams;
 
     try {
 
-        const dataCitys: City = await fetch(
-            `http://localhost:3333/top_citys/${slug}`
+        const dataContinent: Continent = await fetch(
+            `http://localhost:3333/continents/${slug}`
         ).then((res: Response) => {
 
             return res.json();
         });
 
-        if (!dataCitys) {
-            throw new Error("city not found");
+        if (!dataContinent) {
+            throw new Error("continent not found");
         }
 
-        const dataUnsplashImages: UnsplashImage[] = await fetch(
-            `https://api.unsplash.com/search/photos` +
-            `?client_id=${process.env.UNSPLASH_CLIENT_ID}` +
-            `&orientation=landscape&per_page=50` +
-            `&query=${dataCitys.city_name}`, {
-            method: "GET",
-            headers: {
-                "Accept-Version": "v1"
-            }
-        }
+        const dataImages: UnsplashImage[] = await fetch(
+            `http://localhost:3000/api/search_images?query=${dataContinent.name}`
         ).then((res: Response) => {
             return res.json()
-        }).then(data => data?.results || [])
+        })
+        
+        // .then(data => data?.results || [])
 
         return {
             props: {
-                city: dataCitys,
-                images: dataUnsplashImages
+                continent: dataContinent,
+                images: dataImages,
+                campo_update: i || ""
             }
         };
 

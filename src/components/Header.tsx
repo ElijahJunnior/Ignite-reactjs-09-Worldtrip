@@ -11,6 +11,7 @@ export function Header() {
     const isHomePage = (router.asPath === '/')
 
     const tempIsCityPage = (router.asPath.includes("citys/set_image"))
+    const tempIsContinentePage = (router.asPath.includes("continente/set_image"))
 
     return (
         <Flex
@@ -22,7 +23,7 @@ export function Header() {
                     w="2rem" h="2rem" align='center' justify='center'
                     alignSelf='center' position='absolute' left='0'
                 >
-                    <Link href={!tempIsCityPage ? '/' : '/citys'} passHref>
+                    <Link href={tempIsCityPage ?  '/citys' : tempIsContinentePage ? '/continente' : '/' } passHref>
                         <ChakraLink>
                             <Image src={PreviewPageIcon} alt="Voltar para a home page" />
                         </ChakraLink>
