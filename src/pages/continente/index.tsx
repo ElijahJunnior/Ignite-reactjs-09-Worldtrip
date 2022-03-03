@@ -37,9 +37,9 @@ export default function Continent({ continents }: PageProps) {
                             </Heading>
                             <Flex gap="60px" >
                                 <Box
-                                    w="610px" h="305px" position="relative" borderRadius="16px"
-                                    shadow="dark-lg" bg="light.info" bgImage={continente.cover_image}
-                                    bgSize="cover" bgPos="center" bgBlendMode="darken"
+                                    w="610px" h="305px" position="relative" borderRadius="16px" shadow="dark-lg" 
+                                    bg={`linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${continente.cover_image + "&w=720"})`}
+                                    bgSize="cover" bgPos="center" 
                                 >
                                     <Button
                                         as="a" href={`/continente/set_image/${continente.id}?i=cover`}
@@ -50,9 +50,9 @@ export default function Continent({ continents }: PageProps) {
                                     </Button>
                                 </Box>
                                 <Box
-                                    w="610px" h="305px" position="relative" borderRadius="16px"
-                                    shadow="dark-lg" bg="light.info" bgImage={continente.page_image}
-                                    bgSize="cover" bgPos="center" bgBlendMode="darken"
+                                    w="610px" h="305px" position="relative" borderRadius="16px" shadow="dark-lg" 
+                                    bg={`linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${continente.page_image + "&w=720"})`}
+                                    bgSize="cover" bgPos="center" 
                                 >
                                     <Button
                                         as="a" href={`/continente/set_image/${continente.id}?i=page`}

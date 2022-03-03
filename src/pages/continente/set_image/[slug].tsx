@@ -29,9 +29,10 @@ export default function SetCityImage(props: PageProps) {
     const router = useRouter()
 
     const [images, setImages ] = useState<UnsplashImage[]>(props.images);
-    const [inputVal, setinputVal ] = useState("");
+    const [query, setQuery ] = useState("");
+    const [page, setPage ] = useState(1);
 
-    async function handleSeachImages(query: string) {
+    async function handleSeachImages() {
         
         const dataImages: UnsplashImage[] = await fetch(
             `http://localhost:3000/api/search_images?query=${query}`
@@ -40,6 +41,19 @@ export default function SetCityImage(props: PageProps) {
         });
 
         setImages(dataImages);
+        setPage(1);
+    }
+
+    async function handleLoadMoreResults() {
+        
+        const dataImages: UnsplashImage[] = await fetch(
+            `http://localhost:3000/api/search_images?query=${query}&page=${page + 1}`
+        ).then((res: Response) => {
+            return res.json()
+        });
+
+        setImages([...images, ...dataImages] );
+        setPage(page + 1)
 
     }
 
@@ -85,11 +99,12 @@ export default function SetCityImage(props: PageProps) {
                 <Flex mb="80px">
                     <Input 
                         placeholder="pesquisar imagens" size="lg" type="search" mr="8px" 
-                        value={inputVal} onChange={(event) => {setinputVal(event.target.value) }}
+                        value={query} onChange={(event) => {setQuery(event.target.value) }}
                     />
                     <Button 
                         size="lg" variant="solid" bg="light.info" 
                         fontSize="24px" color="dark.info" 
+                        onClick={handleSeachImages}
                     >
                         <FaSearch />
                     </Button>
@@ -99,8 +114,10 @@ export default function SetCityImage(props: PageProps) {
                         <Flex
                             key={img.id}
                             w="600px" h="365px" p="20px" align="end" justify="end"
-                            borderRadius="16px" bgImage={img.url + "&w=720"}
-                            bgSize="cover" bgPos="center" boxShadow={"dark-lg"}
+                            borderRadius="16px" boxShadow={"dark-lg"}
+                            bg={`linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(${img.url + "&w=720"})`}
+                            bgSize="cover" bgPos="center" 
+
                         >
                             <Button
                                 bg="light.text" color="dark.text"
@@ -111,6 +128,15 @@ export default function SetCityImage(props: PageProps) {
                         </Flex>
                     ))}
                 </SimpleGrid>
+                {(!!query && images.length > 0) && (
+                    <Button 
+                        size="lg" maxW="360px" mb="80px" variant="solid" alignSelf="center"
+                        bg="dark.text" color="light.text" fontSize="24px" 
+                        onClick={handleLoadMoreResults}
+                    >
+                        Carregar mais resultados 
+                    </Button>
+                )}
             </Flex>
         </>
     )
