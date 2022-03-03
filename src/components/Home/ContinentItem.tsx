@@ -3,10 +3,12 @@ import Link from 'next/link';
 
 // types
 export type Continent = {
-    id: string,
-    name: string,
-    description: string,
-    image: string
+    id: string, 
+    name: string, 
+    cover_description: string, 
+    cover_image: string, 
+    page_description: string, 
+    page_image: string, 
 }
 
 type IContinentItemProps = {
@@ -20,7 +22,8 @@ export function ContinentItem({ continent }: IContinentItemProps) {
             <ChakraLink textDecor="none" _hover={{ textDecoration: "none" }}>
                 <Flex
                     h="100%" w="100%" flexDir="column" align="center" justify="center"
-                    bgImage={continent.image} bgSize="cover" bgPosition="center"
+                    bg={`linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${continent.cover_image})`}
+                    bgSize="cover" bgPos="center"                     
                 >
                     <Heading
                         color="light.text" pb="1rem"
@@ -30,7 +33,7 @@ export function ContinentItem({ continent }: IContinentItemProps) {
                         {continent.name}
                     </Heading>
                     <Text color="light.info" fontWeight="700" fontSize="24px" lineHeight="36px" textDecor="none">
-                        {continent.description}
+                        {continent.cover_description}
                     </Text>
                 </Flex>
             </ChakraLink>

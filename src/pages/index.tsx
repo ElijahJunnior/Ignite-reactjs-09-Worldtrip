@@ -30,7 +30,12 @@ export default function Home({ continents }: HomeProps) {
       <Header />
       <Flex
         h="21rem" justify="center"
-        bgImage="images/homeBanner.png" bgSize="cover"
+        bgImage={
+          "https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a" + 
+          "?ixid=MnwzMDYxNDh8MHwxfHNlYXJjaHwxMnx8YWZyaWNhfGVufDB8MHx8fD" + 
+          "E2NDYzMjc3Njg&ixlib=rb-1.2.1&w=1920"
+        } 
+        bgSize="cover"
       >
         <Flex w="100%" maxW={1280} position="relative">
           <Box maxW="32rem" pt="5rem" px="1.5rem" color="light.text">
