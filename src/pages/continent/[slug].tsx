@@ -4,19 +4,30 @@ import { ParsedUrlQuery } from 'querystring';
 import { InfoCard } from '../../components/Continente/InfoCard';
 import { CityCard } from '../../components/Continente/CityCard';
 import { Header } from '../../components/Header';
+import { Continent } from '../../components/Home/ContinentItem';
 
 interface Iparams extends ParsedUrlQuery {
     slug: string
 }
 
-export default function Continente(props) {
+type ContinentProps = {
+    continent: Continent
+}
+
+export default function ContinentPage({ continent }: ContinentProps) {
     return (
         <>
             <Header />
             <Flex w="100%" h="500px" bg="dark.text" mb="80px">
-                <Flex w="100%" h="100%" maxW="1280px" m="0 auto" flexDir="column-reverse">
-                    <Heading fontSize="48px" fontWeight="600" lineHeight="72px" mb="3.625rem" color="light.text">
-                        {props.slug}
+                <Flex 
+                    w="100%" h="100%" maxW="1280px" m="0 auto" flexDir="column-reverse"
+                    bgPos="center" bgSize="cover" bgImage={continent.page_image}
+                >
+                    <Heading 
+                        fontSize="48px" fontWeight="600" 
+                        lineHeight="72px" mb="3.625rem" color="light.text"
+                    >
+                        {continent.name}
                     </Heading>
                 </Flex>
             </Flex>
@@ -26,15 +37,11 @@ export default function Continente(props) {
                         color="dark.text" fontWeight="400" fontSize="24px"
                         lineHeight="36px" textAlign="justify"
                     >
-                        A Europa é, por convenção, um dos seis continentes
-                        do mundo. Compreendendo a península ocidental da
-                        Eurásia, a Europa geralmente divide-se da Ásia a
-                        leste pela divisória de águas dos montes Urais, o
-                        rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste
+                        {continent.page_description}
                     </Text>
                     <HStack spacing="42px">
-                        <InfoCard counter={50} description="países" />
-                        <InfoCard counter={60} description="linguas" />
+                        <InfoCard counter={Number(continent.countries_number)} description="países" />
+                        <InfoCard counter={Number(continent.languages_number)} description="linguas" />
                         <InfoCard counter={27} description="cidades +100" infoText="teste" />
                     </HStack>
                 </HStack>
@@ -64,14 +71,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
-
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps<ContinentProps> = async (ctx) => {
 
     const { slug } = ctx.params as Iparams
 
+    const data = await fetch(`http://localhost:3333/continents/${slug}`).then((res: Response) => {
+        return res.json();
+    })
+
     return {
         props: {
-            slug
+            continent: data
         },
         revalidate: 60
     }

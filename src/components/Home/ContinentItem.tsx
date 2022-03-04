@@ -20,7 +20,7 @@ type IContinentItemProps = {
 export function ContinentItem({ continent }: IContinentItemProps) {
 
     return (
-        <Link href={`/continente/${continent.id}`} passHref >
+        <Link href={`/continent/${continent.id}`} passHref >
             <ChakraLink textDecor="none" _hover={{ textDecoration: "none" }}>
                 <Flex
                     h="100%" w="100%" flexDir="column" align="center" justify="center"
