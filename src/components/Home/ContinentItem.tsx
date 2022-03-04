@@ -3,12 +3,14 @@ import Link from 'next/link';
 
 // types
 export type Continent = {
-    id: string, 
-    name: string, 
-    cover_description: string, 
-    cover_image: string, 
-    page_description: string, 
-    page_image: string, 
+    id: string,
+    name: string,
+    cover_description: string,
+    cover_image: string,
+    page_description: string,
+    page_image: string,
+    countries_number: string,
+    languages_number: string,
 }
 
 type IContinentItemProps = {
@@ -23,7 +25,7 @@ export function ContinentItem({ continent }: IContinentItemProps) {
                 <Flex
                     h="100%" w="100%" flexDir="column" align="center" justify="center"
                     bg={`linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${continent.cover_image})`}
-                    bgSize="cover" bgPos="center"                     
+                    bgSize="cover" bgPos="center"
                 >
                     <Heading
                         color="light.text" pb="1rem"
