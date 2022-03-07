@@ -1,17 +1,6 @@
 import { Flex, Link as ChakraLink, Heading, Text } from "@chakra-ui/react";
 import Link from 'next/link';
-
-// types
-export type Continent = {
-    id: string,
-    name: string,
-    cover_description: string,
-    cover_image: string,
-    page_description: string,
-    page_image: string,
-    countries_number: string,
-    languages_number: string,
-}
+import { Continent } from '../../pages/index';
 
 type IContinentItemProps = {
     continent: Continent

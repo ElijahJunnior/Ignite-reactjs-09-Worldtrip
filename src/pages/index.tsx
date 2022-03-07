@@ -9,7 +9,7 @@ import { Box, Flex, Text, Heading, HStack, Divider } from '@chakra-ui/react';
 // My Components
 import { Header } from '../components/Header';
 import { TrevelType } from '../components/Home/TravelType';
-import { ContinentArea, Continent } from '../components/Home/ContinentArea';
+import { ContinentArea } from '../components/Home/ContinentArea';
 
 // Images
 import AirplaneImg from '../../public/Images/airplane.svg';
@@ -18,6 +18,18 @@ import SurfImg from '../../public/images/surf.svg';
 import BuildingImg from '../../public/images/building.svg';
 import MuseumImg from '../../public/images/museum.svg';
 import EarthImg from '../../public/images/earth.svg';
+
+// types
+export type Continent = {
+  id: string,
+  name: string,
+  cover_description: string,
+  cover_image: string,
+  page_description: string,
+  page_image: string,
+  countries_number: string,
+  languages_number: string,
+}
 
 type HomeProps = {
   continents: Continent[]

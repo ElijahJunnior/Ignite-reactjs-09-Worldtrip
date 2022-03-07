@@ -6,14 +6,12 @@ import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // MyComponents
-import { ContinentItem, Continent } from './ContinentItem'
+import { ContinentItem } from './ContinentItem';
+import { Continent } from '../../pages/index';
 
-// Tipos usados na função
-export type { Continent } from "./ContinentItem"
-
-export type ContinentAreaProps = {
+type ContinentAreaProps = {
     continents: Continent[],
-}
+};
 
 export function ContinentArea({ continents, ...rest }: ContinentAreaProps & FlexProps) {
 

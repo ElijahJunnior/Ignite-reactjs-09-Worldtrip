@@ -4,28 +4,43 @@ import { ParsedUrlQuery } from 'querystring';
 import { InfoCard } from '../../components/Continente/InfoCard';
 import { CityCard } from '../../components/Continente/CityCard';
 import { Header } from '../../components/Header';
-import { Continent } from '../../components/Home/ContinentItem';
+import { Continent } from '../index';
 
 interface Iparams extends ParsedUrlQuery {
     slug: string
 }
 
-type ContinentProps = {
-    continent: Continent
+export type City = {
+    id: string, 
+    rank: string, 
+    city_name: string, 
+    city_image: string, 
+    continent: string, 
+    country_name: string, 
+    country_code: string, 
+    country_flag_image: string, 
 }
 
-export default function ContinentPage({ continent }: ContinentProps) {
+type ContinentProps = {
+    continent: Continent,
+    topCitys: City[]
+}
+
+export default function ContinentPage({ continent, topCitys }: ContinentProps) {
     return (
         <>
             <Header />
-            <Flex w="100%" h="500px" bg="dark.text" mb="80px">
+            <Flex 
+                w="100%" h="500px" mb="80px"
+                bg={`linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${continent.page_image})`} 
+                bgPos="center" bgSize="cover" 
+            >
                 <Flex 
                     w="100%" h="100%" maxW="1280px" m="0 auto" flexDir="column-reverse"
-                    bgPos="center" bgSize="cover" bgImage={continent.page_image}
                 >
                     <Heading 
-                        fontSize="48px" fontWeight="600" 
-                        lineHeight="72px" mb="3.625rem" color="light.text"
+                        mb="3.625rem" color="light.text"
+                        fontSize="48px" fontWeight="600" lineHeight="72px" 
                     >
                         {continent.name}
                     </Heading>
@@ -42,7 +57,7 @@ export default function ContinentPage({ continent }: ContinentProps) {
                     <HStack spacing="42px">
                         <InfoCard counter={Number(continent.countries_number)} description="países" />
                         <InfoCard counter={Number(continent.languages_number)} description="linguas" />
-                        <InfoCard counter={27} description="cidades +100" infoText="teste" />
+                        <InfoCard counter={topCitys.length} description="cidades +100" infoText="teste" />
                     </HStack>
                 </HStack>
                 <Heading
@@ -52,12 +67,11 @@ export default function ContinentPage({ continent }: ContinentProps) {
                     Cidades +100
                 </Heading>
                 <SimpleGrid mb="125px" minChildWidth="256px" spacing="85px">
-                    <CityCard />
-                    <CityCard />
-                    <CityCard />
-                    <CityCard />
-                    <CityCard />
-                    <CityCard />
+                    {
+                        topCitys.map((city) => (
+                            <CityCard key={city.id} city={city} />
+                        ))
+                    }
                 </SimpleGrid>
             </Flex>
         </>
@@ -75,13 +89,18 @@ export const getStaticProps: GetStaticProps<ContinentProps> = async (ctx) => {
 
     const { slug } = ctx.params as Iparams
 
-    const data = await fetch(`http://localhost:3333/continents/${slug}`).then((res: Response) => {
+    const continent = await fetch(`http://localhost:3333/continents/${slug}`).then((res: Response) => {
+        return res.json();
+    })
+
+    const topCitys = await fetch(`http://localhost:3333/top_citys?continent=${slug}`).then((res: Response) => {
         return res.json();
     })
 
     return {
         props: {
-            continent: data
+            continent, 
+            topCitys
         },
         revalidate: 60
     }

@@ -9,6 +9,7 @@ export function Header() {
 
     const router = useRouter()
     const isHomePage = (router.asPath === '/')
+    
 
     return (
         <Flex
@@ -26,8 +27,7 @@ export function Header() {
                         </ChakraLink>
                     </Link>
                 </Flex>
-            )
-            }
+            )}
             <Box w="11.5rem" height="2.8rem">
                 <Image src={Logo} alt="Logo" />
             </Box>
