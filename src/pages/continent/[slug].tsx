@@ -14,6 +14,7 @@ import { Header } from '../../components/Header';
 
 // types
 import { Continent } from '../index';
+import { api } from '../../service/api';
 
 interface Iparams extends ParsedUrlQuery {
     slug: string
@@ -94,8 +95,23 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+    
+    const continents: Continent[] = await api.get("continents").then(
+        res => res.data
+    )
+
+    const paths = continents.reduce((acc, cur: Continent) => {      
+        return [...acc, 
+            {
+                params: {
+                    slug: cur.id
+                }
+            }
+        ]
+    }, [])
+
     return {
-        paths: [],
+        paths,
         fallback: "blocking"
     }
 }
@@ -104,13 +120,13 @@ export const getStaticProps: GetStaticProps<ContinentProps> = async (ctx) => {
 
     const { slug } = ctx.params as Iparams
 
-    const continent = await fetch(`http://localhost:3333/continents/${slug}`).then((res: Response) => {
-        return res.json();
-    })
+    const continent: Continent = await api.get(`continents/${slug}`).then(
+        res => res.data
+    )
 
-    const topCitys = await fetch(`http://localhost:3333/top_citys?continent=${slug}`).then((res: Response) => {
-        return res.json();
-    })
+    const topCitys = await api.get(`top_citys?continent=${slug}`).then(
+        res => res.data
+    )
 
     return {
         props: {

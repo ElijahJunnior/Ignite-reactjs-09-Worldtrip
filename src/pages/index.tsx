@@ -8,6 +8,7 @@ import { Box, Flex, Text, Heading, Image, Divider } from '@chakra-ui/react';
 import { Header } from '../components/Header';
 import { TrevelType } from '../components/Home/TravelType';
 import { ContinentArea } from '../components/Home/ContinentArea';
+import { api } from '../service/api';
 
 // types
 export type Continent = {
@@ -84,17 +85,20 @@ export default function Home({ continents }: HomeProps) {
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
-  const continents: Continent[] = await fetch(
-    "http://localhost:3333/continents"
-  ).then(
-    res => res.json()
-  )
+  try {
+    
+    const continents = await api.get("continents").then(res => res.data)
 
-  return {
-    props: {
-      continents
-    },
-    revalidate: 60 * 60 * 24 // 24hrs
-  }
+    return {
+      props: {
+        continents
+      },
+      revalidate: 60 * 60 * 24 // 24hrs
+    }
 
+  } catch (error) {
+    return { 
+      notFound: true
+    }
+  } 
 }
