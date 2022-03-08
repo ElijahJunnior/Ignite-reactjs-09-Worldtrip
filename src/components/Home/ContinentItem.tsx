@@ -1,5 +1,10 @@
-import { Flex, Link as ChakraLink, Heading, Text } from "@chakra-ui/react";
+// Next / React
 import Link from 'next/link';
+
+// Chakra 
+import { Flex, Link as ChakraLink, Heading, Text } from "@chakra-ui/react";
+
+// types
 import { Continent } from '../../pages/index';
 
 type IContinentItemProps = {
@@ -23,7 +28,10 @@ export function ContinentItem({ continent }: IContinentItemProps) {
                     >
                         {continent.name}
                     </Heading>
-                    <Text color="light.info" fontWeight="700" fontSize="24px" lineHeight="36px" textDecor="none">
+                    <Text
+                        color="light.info" textDecor="none"
+                        fontWeight="700" fontSize="24px" lineHeight="36px"
+                    >
                         {continent.cover_description}
                     </Text>
                 </Flex>

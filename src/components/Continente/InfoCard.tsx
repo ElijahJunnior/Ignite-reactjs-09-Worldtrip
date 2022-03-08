@@ -25,10 +25,10 @@ export function InfoCard({ counter, description, infoText = "" }: InfoCardProps)
                 {
                     !!infoText && (
                         <Tooltip
-                            label={infoText} hasArrow
+                            label={infoText} hasArrow textAlign="justify"
                             bg="dark.text" color="light.text"
                         >
-                            <Image src="/images/info.svg" />
+                            <Image src="/images/info.svg" alt="logo simbolizando informações" />
                         </Tooltip>
                     )
                 }

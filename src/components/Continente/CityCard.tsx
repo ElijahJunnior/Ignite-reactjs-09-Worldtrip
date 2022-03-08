@@ -1,8 +1,13 @@
-import { Box, Heading, Text, VStack, Image } from "@chakra-ui/react";
+// Next
 import NextImage from "next/image";
+
+// Chakra
+import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+
+// types
 import { City } from '../../pages/continent/[slug]';
 
-type ComponentProps = { 
+type ComponentProps = {
     city: City
 }
 
@@ -11,10 +16,13 @@ export function CityCard({ city }: ComponentProps) {
         <VStack
             w="256px" h="279px" spacing="12px" position="relative" bg="light.text" overflow="hidden"
             borderRadius="4px" border="1px" borderColor="base.highlight"
+
         >
-            <Image
-                w="256px" h="173px"
-                src={city.city_image} objectFit="cover"                 
+            <NextImage
+                src={city.city_image}
+                alt={`imagem de um ponto turístico da cidade ${city.city_name}`}
+                width="256px" height="173px"
+                objectFit="cover" objectPosition="center"
             />
             <Heading
                 pl="24px" pt="6px" alignSelf="flex-start"
@@ -29,11 +37,16 @@ export function CityCard({ city }: ComponentProps) {
             >
                 {city.country_name}
             </Text>
-            <Image 
-                src={city.country_flag_image}
+            <Box
+                w="30px" h="30px" borderRadius="16px" overflow="hidden"
                 position="absolute" right="24px" bottom="38px"
-                boxSize="30px" objectFit="cover"borderRadius="full"                    
-            />
-        </VStack>
+            >
+                <NextImage
+                    src={city.country_flag_image}
+                    alt={`logo com a bandeira do pais ${city.country_name}`}
+                    layout="fill" objectFit="cover" objectPosition="center"
+                />
+            </Box>
+        </VStack >
     )
 }

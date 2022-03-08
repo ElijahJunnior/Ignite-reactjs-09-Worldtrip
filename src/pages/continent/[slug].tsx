@@ -1,9 +1,18 @@
-import { Flex, Heading, Text, HStack, VStack, Image, SimpleGrid } from '@chakra-ui/react';
+// Next / React
 import { GetStaticPaths, GetStaticProps } from 'next';
+
+// Chakra 
+import { Flex, Heading, Text, HStack, SimpleGrid } from '@chakra-ui/react';
+
+// Outros 
 import { ParsedUrlQuery } from 'querystring';
+
+// Components
 import { InfoCard } from '../../components/Continente/InfoCard';
 import { CityCard } from '../../components/Continente/CityCard';
 import { Header } from '../../components/Header';
+
+// types
 import { Continent } from '../index';
 
 interface Iparams extends ParsedUrlQuery {
@@ -11,14 +20,14 @@ interface Iparams extends ParsedUrlQuery {
 }
 
 export type City = {
-    id: string, 
-    rank: string, 
-    city_name: string, 
-    city_image: string, 
-    continent: string, 
-    country_name: string, 
-    country_code: string, 
-    country_flag_image: string, 
+    id: string,
+    rank: string,
+    city_name: string,
+    city_image: string,
+    continent: string,
+    country_name: string,
+    country_code: string,
+    country_flag_image: string,
 }
 
 type ContinentProps = {
@@ -30,17 +39,17 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
     return (
         <>
             <Header />
-            <Flex 
+            <Flex
                 w="100%" h="500px" mb="80px"
-                bg={`linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${continent.page_image})`} 
-                bgPos="center" bgSize="cover" 
+                bg={`linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${continent.page_image})`}
+                bgPos="center" bgSize="cover"
             >
-                <Flex 
+                <Flex
                     w="100%" h="100%" maxW="1280px" m="0 auto" flexDir="column-reverse"
                 >
-                    <Heading 
+                    <Heading
                         mb="3.625rem" color="light.text"
-                        fontSize="48px" fontWeight="600" lineHeight="72px" 
+                        fontSize="48px" fontWeight="600" lineHeight="72px"
                     >
                         {continent.name}
                     </Heading>
@@ -57,7 +66,13 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
                     <HStack spacing="42px">
                         <InfoCard counter={Number(continent.countries_number)} description="países" />
                         <InfoCard counter={Number(continent.languages_number)} description="linguas" />
-                        <InfoCard counter={topCitys.length} description="cidades +100" infoText="teste" />
+                        <InfoCard
+                            counter={topCitys.length} description="cidades +100"
+                            infoText={
+                                "Número de cidades que estão nesse continente " +
+                                "e fazem parte da lista das 100 melhores cidades do mundo"
+                            }
+                        />
                     </HStack>
                 </HStack>
                 <Heading
@@ -99,7 +114,7 @@ export const getStaticProps: GetStaticProps<ContinentProps> = async (ctx) => {
 
     return {
         props: {
-            continent, 
+            continent,
             topCitys
         },
         revalidate: 60
