@@ -96,43 +96,66 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     
-    const continents: Continent[] = await api.get("continents").then(
-        res => res.data
-    )
+    try {
+        
+        const continents: Continent[] = await api.get("continents").then(
+            res => res.data
+        )
 
-    const paths = continents.reduce((acc, cur: Continent) => {      
-        return [...acc, 
-            {
-                params: {
-                    slug: cur.id
+        const paths = continents.reduce((acc, cur: Continent) => {      
+            return [...acc, 
+                {
+                    params: {
+                        slug: cur.id
+                    }
                 }
-            }
-        ]
-    }, [])
+            ]
+        }, [])
 
-    return {
-        paths,
-        fallback: "blocking"
+        return {
+            paths,
+            fallback: "blocking",
+        }
+
+    } catch (error) {
+        
+        return {
+            paths: [],
+            fallback: "blocking",
+        }  
+
     }
+
 }
 
 export const getStaticProps: GetStaticProps<ContinentProps> = async (ctx) => {
 
     const { slug } = ctx.params as Iparams
 
-    const continent: Continent = await api.get(`continents/${slug}`).then(
-        res => res.data
-    )
+    try {
 
-    const topCitys = await api.get(`top_citys?continent=${slug}`).then(
-        res => res.data
-    )
+        const continent: Continent = await api.get(`continents/${slug}`).then(
+            res => res.data
+        )
 
-    return {
-        props: {
-            continent,
-            topCitys
-        },
-        revalidate: 60
+        const topCitys = await api.get(`top_citys?continent=${slug}`).then(
+            res => res.data
+        )
+
+        return {
+            props: {
+                continent,
+                topCitys
+            },
+            revalidate: 60
+        }
+        
+    } catch (error) {
+       
+        return { 
+            notFound: true
+        }
+
     }
+    
 }
