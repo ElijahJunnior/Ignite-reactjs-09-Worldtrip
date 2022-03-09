@@ -1,5 +1,15 @@
 import { extendTheme, theme as baseTheme } from '@chakra-ui/react';
 
+
+
+// BREAKPOINTS
+//
+//     sm : 30em = Menor que  480px
+//     md : 48em = Menor que  768px
+//     lg : 62em = Menor que  992px
+//     xl : 80em = Menor que 1280px
+//     2xl: 96em = Menor que 1516px
+
 export const theme = extendTheme({
     styles: {
         global: {

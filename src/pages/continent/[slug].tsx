@@ -2,7 +2,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 // Chakra 
-import { Flex, Heading, Text, HStack, SimpleGrid } from '@chakra-ui/react';
+import { Flex, Heading, Text, HStack, SimpleGrid, useBreakpointValue } from '@chakra-ui/react';
 
 // Outros 
 import { ParsedUrlQuery } from 'querystring';
@@ -37,6 +37,7 @@ type ContinentProps = {
 }
 
 export default function ContinentPage({ continent, topCitys }: ContinentProps) {
+           
     return (
         <>
             <Header />
