@@ -40,25 +40,28 @@ export default function Home({ continents }: HomeProps) {
         }
         bgSize="cover"
       >
-        <Flex w="100%" maxW={1280} position="relative">
-          <Box maxW="512px" pt="80px" px="24px" color="light.text">
+        <Flex w="100%" maxW={1440} px={["0", "32px", "100px"]} position="relative">
+          <Box maxW="512px" pt="80px" color="light.text">
             <Heading mb="24px" fontWeight="500" fontSize="36px" lineHeight="54px">
               5 Continentes,<br />
               infinitas possibilidades.
             </Heading>
-            <Text fontWeight="400" fontSize="20px" fontHeight="30px">
+            <Text fontWeight="400" fontSize="20px" lineHeight="30px">
               Chegou a hora de tirar do papel a viagem que você sempre sonhou.
             </Text>
           </Box>
           <Box
             width="416px" transform="rotate(3deg)"
-            position="absolute" right="24px" bottom="-40px"
+            position="absolute" right="100px" bottom="-40px"
           >
             <Image src="/images/airplane.svg" alt="Icone de avião" />
           </Box>
         </Flex>
       </Flex>
-      <Flex w="100%" maxW={1280} m="0 auto" mt="120px" justify="space-around">
+      <Flex
+        w="100%" maxW={1440} px={["0", "32px", "100px"]}
+        mt="120px" mx="auto" justify="space-between"
+      >
         <TrevelType description='vida noturna' imageSrc="/images/cocktail.svg" />
         <TrevelType description='praia' imageSrc="/images/surf.svg" />
         <TrevelType description='moderno' imageSrc="/images/building.svg" />
@@ -76,8 +79,8 @@ export default function Home({ continents }: HomeProps) {
       </Heading>
       <ContinentArea
         continents={continents}
-        w="100%" h="450px" maxW="1280px" my="52px"
-        alignSelf="center" bg="light.info"
+        w="100%" h="450px" maxW="1440px"
+        px={["0", "0", "100px"]} my="52px" alignSelf="center"
       />
     </Flex>
   )
@@ -86,7 +89,7 @@ export default function Home({ continents }: HomeProps) {
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
   try {
-    
+
     const continents = await api.get("continents").then(res => res.data)
 
     return {
@@ -97,8 +100,8 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     }
 
   } catch (error) {
-    return { 
+    return {
       notFound: true
     }
-  } 
+  }
 }
