@@ -7,7 +7,7 @@ interface ITrevelTypeProps {
 
 export function TrevelType({ description, imageSrc }: ITrevelTypeProps) {
     return (
-        <Flex w="125px" flexDir="column" align="center" justify="center">
+        <Flex flexDir="column" align="center" justify="center" mx="auto">
             <Image src={imageSrc} alt={`icone simbolizando a ${description}`} />
             <Text pt="24px">{description}</Text>
         </Flex>

@@ -2,7 +2,7 @@
 import { GetStaticProps } from 'next';
 
 // Chakra
-import { Box, Flex, Text, Heading, Image, Divider, Show, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Flex, Text, Heading, Image, Divider, Show, useBreakpointValue, SimpleGrid } from '@chakra-ui/react';
 
 // My Components
 import { Header } from '../components/Header';
@@ -75,15 +75,21 @@ export default function Home({ continents }: HomeProps) {
           </Show>
         </Flex>
       </Flex>
-      <Flex
-        w="100%" maxW={1440} px={["0", "32px", "100px"]}
-        mt="120px" mx="auto" justify="space-between"
+      <SimpleGrid
+        w="100%" maxW={1440} mt="120px" mx="auto" 
+        px={["0", "32px", "100px"]} minChildWidth="125px"        
       >
         <TrevelType description='vida noturna' imageSrc="/images/cocktail.svg" />
         <TrevelType description='praia' imageSrc="/images/surf.svg" />
         <TrevelType description='moderno' imageSrc="/images/building.svg" />
         <TrevelType description='clássico' imageSrc="/images/museum.svg" />
         <TrevelType description='e mais...' imageSrc="/images/earth.svg" />
+      </SimpleGrid>
+      <Flex
+        w="100%" maxW={1440} 
+        px={["0", "32px", "100px"]}
+        mt="120px" mx="auto" justify="space-between"
+      >
       </Flex>
       <Divider w={120} h={1} alignSelf="center" mt="120px" bg="dark.text" />
       <Heading
