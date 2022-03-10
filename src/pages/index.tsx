@@ -28,37 +28,47 @@ type HomeProps = {
 
 export default function Home({ continents }: HomeProps) {
 
+  const bannerImg = "https://images.unsplash.com/photo-14953445178" +
+    "68-8ebaf0a2044a?ixid=MnwzMDYxNDh8MHwxfHNlYXJjaHwxMnx8YWZyaWNh" +
+    "fGVufDB8MHx8fDE2NDYzMjc3Njg&ixlib=rb-1.2.1&w=1920"
+
   return (
     <Flex w="100%" flexDir="column">
       <Header />
       <Flex
-        h="336px" justify="center"
-        bgImage={
-          "https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a" +
-          "?ixid=MnwzMDYxNDh8MHwxfHNlYXJjaHwxMnx8YWZyaWNhfGVufDB8MHx8fD" +
-          "E2NDYzMjc3Njg&ixlib=rb-1.2.1&w=1920"
-        }
-        bgSize="cover"
+        h={["163px", "220px", "277px", "336px"]}
+        bgImage={bannerImg} bgSize="cover" justify="center"
       >
-        <Flex w="100%" maxW={1440} px={["0", "32px", "100px"]} position="relative">
-          <Box maxW="512px" pt="80px" color="light.text">
-            <Heading 
-              mb="24px" fontWeight="500" 
-              fontSize={["20px", "24px", "28px", "36px"]} 
-              lineHeight={["30px", "38px", "46px", "54px"]} 
+        <Flex
+          w="100%" maxW={1440} position="relative"
+          px={["16px", "44px", "72px", "100px"]}
+          pt={["28px", "45px", "62px", "80px"]}
+        >
+          <Box maxW="512px" color="light.text">
+            <Heading
+              fontWeight="500"
+              mb={["8px", "13px", "18px", "24px"]}
+              fontSize={["20px", "24px", "28px", "36px"]}
+              lineHeight={["30px", "38px", "46px", "54px"]}
             >
               5 Continentes,
               <br />
               infinitas possibilidades.
             </Heading>
-            <Text fontWeight="400" fontSize="20px" lineHeight="30px">
+            <Text
+              fontWeight="400"
+              fontSize={["14px", "16px", "18px", "20px"]}
+              lineHeight={["21px", "24px", "27px", "30px"]}
+            >
               Chegou a hora de tirar do papel a viagem que você sempre sonhou.
             </Text>
           </Box>
-          <Show above='xl'>
+          <Show above='lg'>
             <Box
-              width="416px" transform="rotate(3deg)"
-              position="absolute" right="100px" bottom="-40px"
+              width={useBreakpointValue({ lg: "280px", xl: "416px" })}
+              transform="rotate(3deg)"
+              position="absolute" bottom="-40px"
+              right={["16px", "44px", "72px", "100px"]}
             >
               <Image src="/images/airplane.svg" alt="Icone de avião" />
             </Box>
