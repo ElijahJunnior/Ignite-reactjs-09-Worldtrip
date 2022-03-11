@@ -2,7 +2,7 @@
 import { GetStaticProps } from 'next';
 
 // Chakra
-import { Box, Flex, Text, Heading, Image, Divider, Show, useBreakpointValue, SimpleGrid } from '@chakra-ui/react';
+import { Box, Flex, Text, Heading, Image, Divider, Show, useBreakpointValue, SimpleGrid, GridItem } from '@chakra-ui/react';
 
 // My Components
 import { Header } from '../components/Header';
@@ -76,17 +76,19 @@ export default function Home({ continents }: HomeProps) {
         </Flex>
       </Flex>
       <SimpleGrid
-        w="100%" maxW={1440} mt="120px" mx="auto" 
-        px={["0", "32px", "100px"]} minChildWidth="125px"        
+        w="100%" maxW={1440} mt="120px" mx="auto"
+        px={["16px", "44px", "72px", "100px"]}
+        columns={[2, 2, null]} spacingY="24px"
+        minChildWidth={[null, null, "120px"]}
       >
         <TrevelType description='vida noturna' imageSrc="/images/cocktail.svg" />
         <TrevelType description='praia' imageSrc="/images/surf.svg" />
         <TrevelType description='moderno' imageSrc="/images/building.svg" />
         <TrevelType description='clássico' imageSrc="/images/museum.svg" />
-        <TrevelType description='e mais...' imageSrc="/images/earth.svg" />
+        <TrevelType description='e mais...' imageSrc="/images/earth.svg" colSpan={[2, 2, 1]} />
       </SimpleGrid>
       <Flex
-        w="100%" maxW={1440} 
+        w="100%" maxW={1440}
         px={["0", "32px", "100px"]}
         mt="120px" mx="auto" justify="space-between"
       >
