@@ -76,10 +76,9 @@ export default function Home({ continents }: HomeProps) {
         </Flex>
       </Flex>
       <SimpleGrid
-        w="100%" maxW={1440} mt="120px" mx="auto"
-        px={["16px", "44px", "72px", "100px"]}
-        columns={[2, 2, null]} spacingY="24px"
-        minChildWidth={[null, null, "120px"]}
+        w="100%" maxW={1440} mx="auto" mt={["36px", "50px", "64px", "80px"]}
+        px={["16px", "44px", "72px", "100px"]} spacingY="24px"
+        columns={[2, 2, null]} minChildWidth={[null, null, "120px"]}
       >
         <TrevelType description='vida noturna' imageSrc="/images/cocktail.svg" />
         <TrevelType description='praia' imageSrc="/images/surf.svg" />
@@ -87,16 +86,15 @@ export default function Home({ continents }: HomeProps) {
         <TrevelType description='clássico' imageSrc="/images/museum.svg" />
         <TrevelType description='e mais...' imageSrc="/images/earth.svg" colSpan={[2, 2, 1]} />
       </SimpleGrid>
-      <Flex
-        w="100%" maxW={1440}
-        px={["0", "32px", "100px"]}
-        mt="120px" mx="auto" justify="space-between"
-      >
-      </Flex>
-      <Divider w={120} h={1} alignSelf="center" mt="120px" bg="dark.text" />
+      <Divider
+        w={["60px", "70px", "80px", "90px"]} h="2px"
+        mt={["36px", "50px", "64px", "80px"]}
+        alignSelf="center" bg="dark.text"
+      />
       <Heading
-        mt="120px" fontSize="36px" lineHeight="54px"
-        fontWeight="500" textAlign="center"
+        mt={["24px", "42px", "24px", "52px"]} fontWeight="500" textAlign="center"
+        fontSize={["20px", "25px", "30px", "36px"]} lineHeight={["30px", "38px", "46px", "54px"]}
+
       >
         Vamos nessa?
         <br />
@@ -104,8 +102,11 @@ export default function Home({ continents }: HomeProps) {
       </Heading>
       <ContinentArea
         continents={continents}
-        w="100%" h="450px" maxW="1440px"
-        px={["0", "0", "100px"]} my="52px" alignSelf="center"
+        w="100%" maxW="1440px"
+        h={["250px", "316px", "382px", "450px"]}
+        px={["0", null, "50px", "100px"]}
+        my={["20px", "27px", "34px", "52px"]}
+        alignSelf="center"
       />
     </Flex>
   )

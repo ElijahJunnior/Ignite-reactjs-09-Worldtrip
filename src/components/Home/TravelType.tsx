@@ -1,4 +1,4 @@
-import { Flex, Text, Image, FlexProps, Show, Box, GridItem, ResponsiveValue } from "@chakra-ui/react";
+import { Flex, Text, Image, FlexProps, Show, Box, GridItem, ResponsiveValue, Hide } from "@chakra-ui/react";
 
 interface ITrevelTypeProps {
     description: string,
@@ -19,13 +19,19 @@ export function TrevelType({ description, imageSrc, colSpan = null }: ITrevelTyp
                         alt={`icone simbolizando a ${description}`}
                     />
                 </Show>
-                <Show below="sm">
+                <Hide above="sm">
                     <Box
                         w="8px" h="8px" mr="8px"
                         bgColor="base.highlight" borderRadius="full"
                     />
-                </Show>
-                <Text >{description}</Text>
+                </Hide>
+                <Text
+                    fontWeight={["500", null, null, "600"]}
+                    fontSize={["18px", null, null, "24px"]}
+                    lineHeight={["27px", null, null, "36px"]}
+                >
+                    {description}
+                </Text>
             </Flex>
         </GridItem>
     )
