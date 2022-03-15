@@ -12,7 +12,7 @@ export function Header() {
 
     return (
         <Flex
-            w="100%" maxW={1440} h={["50px", "66px", "82px", "100px"]}
+            w="100%" maxW="1440px" minW="370px" h={["50px", "66px", "82px", "100px"]}
             marginX='auto' px={["16px", "44px", "72px", "100px"]}
             align="center" justify="center" position='relative'
         >

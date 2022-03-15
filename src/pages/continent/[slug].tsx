@@ -39,19 +39,25 @@ type ContinentProps = {
 export default function ContinentPage({ continent, topCitys }: ContinentProps) {
            
     return (
-        <>
+        <Flex w="100%" minW="370px" flexDir="column">
             <Header />
             <Flex
-                w="100%" h="500px" mb="80px"
+                w="100%" minW="370px" mb="80px"
+                h={["150px", "266px", "382px", "500px"]} 
                 bg={`linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${continent.page_image})`}
                 bgPos="center" bgSize="cover"
             >
                 <Flex
-                    w="100%" h="100%" maxW="1280px" m="0 auto" flexDir="column-reverse"
+                    w="100%" h="100%" maxW="1440px" m="0 auto" 
+                    px={["16px", "44px", "72px", "100px"]}   
+                    align={["center", null, "flex-end"]} 
+                    justify={["center", null, "flex-start"]}
                 >
                     <Heading
-                        mb="3.625rem" color="light.text"
-                        fontSize="48px" fontWeight="600" lineHeight="72px"
+                        color="light.text" fontWeight="600"
+                        mb={["0", null, "29px", "58px"]} 
+                        fontSize={["28px", "34px", "40px", "48px" ]}
+                        lineHeight={["42px", "52px", "62px", "72px"]}
                     >
                         {continent.name}
                     </Heading>
@@ -91,7 +97,7 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
                     }
                 </SimpleGrid>
             </Flex>
-        </>
+        </Flex>
     )
 }
 
