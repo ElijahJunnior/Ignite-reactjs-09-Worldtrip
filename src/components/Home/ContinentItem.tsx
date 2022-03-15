@@ -22,15 +22,16 @@ export function ContinentItem({ continent }: IContinentItemProps) {
                     bgSize="cover" bgPos="center"
                 >
                     <Heading
-                        color="light.text" pb="1rem"
-                        fontWeight="700" fontSize="48px" lineHeight="72px"
-                        textDecor="none"
+                        color="light.text" pb="1rem" textDecor="none" fontWeight="700"
+                        fontSize={["24px", "32px", "40px", "48px"]}
+                        lineHeight={["36px", "48px", "60px", "72px"]}
                     >
                         {continent.name}
                     </Heading>
                     <Text
-                        color="light.info" textDecor="none"
-                        fontWeight="700" fontSize="24px" lineHeight="36px"
+                        color="light.info" textDecor="none" fontWeight="700"
+                        fontSize={["14px", "17px", "20px", "24px"]}
+                        lineHeight={["21px", "26px", "31px", "36px"]}
                     >
                         {continent.cover_description}
                     </Text>
