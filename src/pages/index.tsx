@@ -33,14 +33,14 @@ export default function Home({ continents }: HomeProps) {
     "fGVufDB8MHx8fDE2NDYzMjc3Njg&ixlib=rb-1.2.1&w=1920"
 
   return (
-    <Flex w="100%" minW="370px" flexDir="column">
+    <Flex w="100%" minW="minWidth" flexDir="column">
       <Header />
       <Flex
         h={["163px", "220px", "277px", "336px"]}
         bgImage={bannerImg} bgSize="cover" justify="center"
       >
         <Flex
-          w="100%" maxW="1440px" position="relative"
+          w="100%" maxW="maxWidth" position="relative"
           px={["16px", "44px", "72px", "100px"]}
           pt={["28px", "45px", "62px", "80px"]}
         >
@@ -76,7 +76,7 @@ export default function Home({ continents }: HomeProps) {
         </Flex>
       </Flex>
       <SimpleGrid
-        w="100%" maxW="1440px" mx="auto" mt={["36px", "50px", "64px", "80px"]}
+        w="100%" maxW="maxWidth" mx="auto" mt={["36px", "50px", "64px", "80px"]}
         px={["16px", "44px", "72px", "100px"]} spacingY="24px"
         columns={[2, 2, null]} minChildWidth={[null, null, "120px"]}
       >
@@ -102,7 +102,7 @@ export default function Home({ continents }: HomeProps) {
       </Heading>
       <ContinentArea
         continents={continents}
-        w="100%" maxW="1440px"
+        w="100%" maxW="maxWidth"
         h={["250px", "316px", "382px", "450px"]}
         px={["0", null, "50px", "100px"]}
         my={["20px", "27px", "34px", "52px"]}

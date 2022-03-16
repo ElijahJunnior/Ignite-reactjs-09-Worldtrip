@@ -34,6 +34,10 @@ export const theme = extendTheme({
             info: '#DADADA'
         }
     },
+    sizes: {
+        minWidth: "350px",
+        maxWidth: "1440px"
+    },
     fonts: {
         heading: 'Poppins',
         body: 'Poppins'

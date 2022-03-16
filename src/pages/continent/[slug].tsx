@@ -37,41 +37,50 @@ type ContinentProps = {
 }
 
 export default function ContinentPage({ continent, topCitys }: ContinentProps) {
-           
+
     return (
-        <Flex w="100%" minW="370px" flexDir="column">
+        <Flex w="100%" minW="minWidth" flexDir="column">
             <Header />
             <Flex
-                w="100%" minW="370px" mb="80px"
-                h={["150px", "266px", "382px", "500px"]} 
+                w="100%" h={["150px", "266px", "382px", "500px"]}
                 bg={`linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${continent.page_image})`}
                 bgPos="center" bgSize="cover"
             >
                 <Flex
-                    w="100%" h="100%" maxW="1440px" m="0 auto" 
-                    px={["16px", "44px", "72px", "100px"]}   
-                    align={["center", null, "flex-end"]} 
+                    w="100%" h="100%" maxW="maxWidth" m="0 auto"
+                    px={["16px", "44px", "72px", "100px"]}
+                    align={["center", null, "flex-end"]}
                     justify={["center", null, "flex-start"]}
                 >
                     <Heading
                         color="light.text" fontWeight="600"
-                        mb={["0", null, "29px", "58px"]} 
-                        fontSize={["28px", "34px", "40px", "48px" ]}
+                        mb={["0", null, "29px", "58px"]}
+                        fontSize={["28px", "34px", "40px", "48px"]}
                         lineHeight={["42px", "52px", "62px", "72px"]}
                     >
                         {continent.name}
                     </Heading>
                 </Flex>
             </Flex>
-            <Flex w="100%" maxW="1280px" m="0 auto" flexDir="column">
-                <HStack spacing="70px" mb="80px">
+            <Flex
+                w="100%" maxW="maxWidth"
+                px={["16px", "44px", "72px", "100px"]}
+                mt={["24px", "42px", "60px", "80px"]}
+                mb="125px" mx="auto" flexDir="column"
+            >
+                <Flex
+                    gap={["16px", "28px", "40px", "70px"]}
+                    flexDir={["column", null, null, "row"]}
+                >
                     <Text
-                        color="dark.text" fontWeight="400" fontSize="24px"
-                        lineHeight="36px" textAlign="justify"
+                        w={[null, null, null, "50%"]}
+                        color="dark.text" textAlign="justify" fontWeight="400"
+                        fontSize={["14px", "17px", "20px", "24px"]}
+                        lineHeight={["21px", "26px", "31px", "36px"]}
                     >
                         {continent.page_description}
                     </Text>
-                    <HStack spacing="42px">
+                    <Flex w={[null, null, null, "50%"]} align="center" justify="space-between">
                         <InfoCard counter={Number(continent.countries_number)} description="países" />
                         <InfoCard counter={Number(continent.languages_number)} description="linguas" />
                         <InfoCard
@@ -81,15 +90,18 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
                                 "e fazem parte da lista das 100 melhores cidades do mundo"
                             }
                         />
-                    </HStack>
-                </HStack>
+                    </Flex>
+                </Flex>
                 <Heading
-                    mb="50px" fontWeight="500" fontSize="36px"
-                    color="dark.text" lineHeight="54px"
+                    mt={["32px", "48px", "64px", "80px"]}
+                    color="dark.text" fontWeight="500"
+                    fontSize={["24px", "28px", "32px", "36px"]}
+                    lineHeight={["36px", "42px", "48px", "54px"]}
                 >
                     Cidades +100
                 </Heading>
-                <SimpleGrid mb="125px" minChildWidth="256px" spacing="85px">
+                <SimpleGrid mt="50px" minChildWidth="256px" >
+                    {/* spacing="85px" */}
                     {
                         topCitys.map((city) => (
                             <CityCard key={city.id} city={city} />
@@ -97,25 +109,25 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
                     }
                 </SimpleGrid>
             </Flex>
-        </Flex>
+        </Flex >
     )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    
+
     try {
-        
+
         const continents: Continent[] = await api.get("continents").then(
             res => res.data
         )
 
-        const paths = continents.reduce((acc, cur: Continent) => {      
-            return [...acc, 
-                {
-                    params: {
-                        slug: cur.id
-                    }
+        const paths = continents.reduce((acc, cur: Continent) => {
+            return [...acc,
+            {
+                params: {
+                    slug: cur.id
                 }
+            }
             ]
         }, [])
 
@@ -125,11 +137,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }
 
     } catch (error) {
-        
+
         return {
             paths: [],
             fallback: "blocking",
-        }  
+        }
 
     }
 
@@ -156,13 +168,13 @@ export const getStaticProps: GetStaticProps<ContinentProps> = async (ctx) => {
             },
             revalidate: 60
         }
-        
+
     } catch (error) {
-       
-        return { 
+
+        return {
             notFound: true
         }
 
     }
-    
+
 }
