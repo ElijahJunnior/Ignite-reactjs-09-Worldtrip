@@ -70,17 +70,21 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
             >
                 <Flex
                     gap={["16px", "28px", "40px", "70px"]}
-                    flexDir={["column", null, null, "row"]}
+                    flexDir={["column", null, null, null, "row"]}
                 >
                     <Text
-                        w={[null, null, null, "50%"]}
+                        w={[null, null, null, null, "50%"]}
                         color="dark.text" textAlign="justify" fontWeight="400"
                         fontSize={["14px", "17px", "20px", "24px"]}
                         lineHeight={["21px", "26px", "31px", "36px"]}
                     >
                         {continent.page_description}
                     </Text>
-                    <Flex w={[null, null, null, "50%"]} align="center" justify="space-between">
+                    <Flex 
+                        w={[null, null, "75%", null,"50%"]} 
+                        align="center" justify="space-between"
+                        alignSelf={[null, null, "center"]}
+                    >
                         <InfoCard counter={Number(continent.countries_number)} description="países" />
                         <InfoCard counter={Number(continent.languages_number)} description="linguas" />
                         <InfoCard
