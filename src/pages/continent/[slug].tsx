@@ -66,7 +66,7 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
                 w="100%" maxW="maxWidth"
                 px={["16px", "44px", "72px", "100px"]}
                 mt={["24px", "42px", "60px", "80px"]}
-                mb="125px" mx="auto" flexDir="column"
+                mb={["20px", null, "40px"]} mx="auto" flexDir="column"
             >
                 <Flex
                     gap={["16px", "28px", "40px", "70px"]}
@@ -104,8 +104,13 @@ export default function ContinentPage({ continent, topCitys }: ContinentProps) {
                 >
                     Cidades +100
                 </Heading>
-                <SimpleGrid mt="50px" minChildWidth="256px" >
-                    {/* spacing="85px" */}
+                <SimpleGrid 
+                    mt={["20px", "26px", "32px", "40px"]} 
+                    spacingY={["20px", "26px", "32px", "40px"]} 
+                    spacingX={[null, null, "45px"]} 
+                    columns={[1, null, 2, 3, 4]}
+                    alignSelf={["center", null, null, "auto" ]}
+                >
                     {
                         topCitys.map((city) => (
                             <CityCard key={city.id} city={city} />

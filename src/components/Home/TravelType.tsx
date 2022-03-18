@@ -27,7 +27,7 @@ export function TrevelType({ description, imageSrc, colSpan = null }: ITrevelTyp
                 </Hide>
                 <Text
                     fontWeight={["500", null, null, "600"]}
-                    fontSize={["18px", null, null, "24px"]}
+                    fontSize={["18px", null, null, "22px", "24px"]}
                     lineHeight={["27px", null, null, "36px"]}
                 >
                     {description}
